@@ -470,7 +470,6 @@ void initX(int argc, char* argv[], XInfo& xinfo) {
     XSetBackground( xinfo.display, xinfo.gc, background );
     XSetForeground( xinfo.display, xinfo.gc, foreground );
     // Tell the window manager what input events you want.
-    // ButtomMotionMask: The client application receives MotionNotify events only when at least one button is pressed.
     XSelectInput( xinfo.display, xinfo.window,
                   KeyPressMask );
     XMapRaised( xinfo.display, xinfo.window );
@@ -479,7 +478,7 @@ void initX(int argc, char* argv[], XInfo& xinfo) {
 
 int main ( int argc, char* argv[] ) {
     stringstream ss; 
-    // Checking if FPS needs to changed
+    // Checking if FPS is provided as input
     if (argc > 1) {
         ss.str(argv[1]);
         ss >> FPS; 

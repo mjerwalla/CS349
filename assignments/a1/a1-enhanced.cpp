@@ -3,8 +3,8 @@
         Additionally, colours of frogs change every alternate level
    Added option for 2 players to play simultaneously: 
         In order to run multiplayer mode, execute as follows: 
-            ./a1-enhanced 30 2
-            The first argument refers to the FPS and second to 2 player mode.  
+            ./a1-enhanced 30 1
+            The first argument refers to the FPS and second argument initiates 2 player mode.  
             Player 1 is controlled with the arrow keys. 
             Player 2 is controlled with "wasd" as follows: w = up, s = down, 
                                                         a = right, d = left 
@@ -556,7 +556,6 @@ void initX(int argc, char* argv[], XInfo& xinfo) {
     XSetBackground( xinfo.display, xinfo.gc, background );
     XSetForeground( xinfo.display, xinfo.gc, foreground );
     // Tell the window manager what input events you want.
-    // ButtomMotionMask: The client application receives MotionNotify events only when at least one button is pressed.
     XSelectInput( xinfo.display, xinfo.window,
                   KeyPressMask );
     XMapRaised( xinfo.display, xinfo.window );
@@ -565,7 +564,7 @@ void initX(int argc, char* argv[], XInfo& xinfo) {
 
 int main ( int argc, char* argv[] ) {
     stringstream ss; 
-    // Checking if FPS needs to changed
+    // Checking if FPS and player mode activated
     if (argc > 1) {
         for (int i = 1; i < argc; ++i ){
             if ( i == 1) {
